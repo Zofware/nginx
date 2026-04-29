@@ -1,0 +1,6 @@
+{
+    "makefile.makePath": "c:\\jellyfin\\code\\nginx\\build.cmd",
+    "files.associations": {
+        "ngx_iocp_module.h": "c"
+    }
+}
