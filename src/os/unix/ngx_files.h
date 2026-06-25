@@ -369,8 +369,13 @@ off_t ngx_fs_available(u_char *name);
 #endif
 
 
+#define ngx_stdin                STDIN_FILENO
 #define ngx_stdout               STDOUT_FILENO
 #define ngx_stderr               STDERR_FILENO
+#define ngx_set_stdin(fd)        dup2(fd, STDIN_FILENO)
+#define ngx_set_stdin_n          "dup2(STDOUT_FILENO)"
+#define ngx_set_stdout(fd)       dup2(fd, STDOUT_FILENO)
+#define ngx_set_stdout_n         "dup2(STDERR_FILENO)"
 #define ngx_set_stderr(fd)       dup2(fd, STDERR_FILENO)
 #define ngx_set_stderr_n         "dup2(STDERR_FILENO)"
 

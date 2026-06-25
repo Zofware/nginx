@@ -1,0 +1,11 @@
+NGINX:
+0. Read https://nginx.org/en/docs/howto_build_on_win32.html
+1. Open Msys2 shell. (C:\tools\msys64\msys2.exe)
+2. cd /c/jellyfin/code/nginx
+3. ./configme-msys2.sh
+4. Open x64 Native Tools Command Prompt for VS 2022. ("C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visual Studio Tools\VC\x64 Native Tools Command Prompt for VS 2022.lnk")
+5. cd c:\jellyfin\code\nginx
+6. nmake
+7. copy objs\nginx.exe to a date-named release folder in ..\install\nginx.
+8. Update the "current" symbolic link to point to the new date-named folder.
+9. Update the Windows firewall to allow nginx.exe  for TCP and UDP.

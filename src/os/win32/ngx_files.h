@@ -107,6 +107,9 @@ ssize_t ngx_write_fd(ngx_fd_t fd, void *buf, size_t size);
 #define ngx_write_fd_n              "WriteFile()"
 
 
+ngx_int_t ngx_reassign_fd(ngx_fd_t fd1, ngx_fd_t fd2);
+#define ngx_reassign_fd             "DuplicateHandle()"
+
 ssize_t ngx_write_console(ngx_fd_t fd, void *buf, size_t size);
 
 
@@ -263,8 +266,13 @@ size_t ngx_fs_bsize(u_char *name);
 off_t ngx_fs_available(u_char *name);
 
 
+#define ngx_stdin                GetStdHandle(STD_INPUT_HANDLE)
 #define ngx_stdout               GetStdHandle(STD_OUTPUT_HANDLE)
 #define ngx_stderr               GetStdHandle(STD_ERROR_HANDLE)
+#define ngx_set_stdin(fd)        SetStdHandle(STD_INPUT_HANDLE, fd)
+#define ngx_set_stdin_n          "SetStdHandle(STD_INPUT_HANDLE)"
+#define ngx_set_stdout(fd)       SetStdHandle(STD_OUTPUT_HANDLE, fd)
+#define ngx_set_stdout_n         "SetStdHandle(STD_OUTPUT_HANDLE)"
 #define ngx_set_stderr(fd)       SetStdHandle(STD_ERROR_HANDLE, fd)
 #define ngx_set_stderr_n         "SetStdHandle(STD_ERROR_HANDLE)"
 
