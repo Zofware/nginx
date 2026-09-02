@@ -7,5 +7,6 @@ NGINX:
 5. cd c:\jellyfin\code\nginx
 6. nmake
 7. copy objs\nginx.exe to a date-named release folder in ..\install\nginx.
-8. Update the "current" symbolic link to point to the new date-named folder.
-9. Update the Windows firewall to allow nginx.exe  for TCP and UDP.
+8. copy the conf, web, and temp folders from the old release folder to the new release folder.
+9. Update the "current" symbolic link to point to the new date-named folder.
+10. Update the Windows firewall to allow nginx.exe  for TCP and UDP.
