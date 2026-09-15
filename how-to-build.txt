@@ -6,7 +6,9 @@ NGINX:
 4. Open x64 Native Tools Command Prompt for VS 2022. ("C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visual Studio Tools\VC\x64 Native Tools Command Prompt for VS 2022.lnk")
 5. cd c:\jellyfin\code\nginx
 6. nmake
-7. copy objs\nginx.exe to a date-named release folder in ..\install\nginx.
-8. copy the conf, web, and temp folders from the old release folder to the new release folder.
-9. Update the "current" symbolic link to point to the new date-named folder.
-10. Update the Windows firewall to allow nginx.exe  for TCP and UDP.
+7. Copy objs\nginx.exe to a date-named release folder in ..\install\nginx.
+8. Copy the conf, temp, and www folders from the old release folder to the new release folder.
+9. Create a logs folder in the new release folder.
+10. Create the hls directory symbolic link in the release www folder: mklink /D hls c:\jellyfin\content\LiveStreams
+11. Update the "current" symbolic link to point to the new date-named folder.
+12. Update the Windows firewall to allow nginx.exe  for TCP and UDP.
