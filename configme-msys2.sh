@@ -13,9 +13,9 @@ auto/configure \
 --http-fastcgi-temp-path=temp/fastcgi_temp \
 --http-scgi-temp-path=temp/scgi_temp \
 --http-uwsgi-temp-path=temp/uwsgi_temp \
---with-pcre=objs/lib/pcre2-10.48 \
+--with-pcre=objs/lib/pcre2-10.49 \
 --with-zlib=objs/lib/zlib-1.3.2 \
---with-openssl=objs/lib/openssl-3.6.4 \
+--with-openssl=objs/lib/openssl-3.5.9 \
 --with-cc-opt=-DFD_SETSIZE=1024 \
 --with-http_v2_module \
 --with-http_realip_module \
