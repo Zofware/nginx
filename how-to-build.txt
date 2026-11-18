@@ -1,14 +1,25 @@
 NGINX:
 0. Read https://nginx.org/en/docs/howto_build_on_win32.html
-1. Open Msys2 shell. (C:\tools\msys64\msys2.exe)
-2. cd /c/jellyfin/code/nginx
-3. ./configme-msys2.sh
-4. Open x64 Native Tools Command Prompt for VS 2022. ("C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visual Studio Tools\VC\x64 Native Tools Command Prompt for VS 2022.lnk")
-5. cd c:\jellyfin\code\nginx
-6. nmake
-7. Copy objs\nginx.exe to a date-named release folder in ..\install\nginx.
-8. Copy the conf, temp, and www folders from the old release folder to the new release folder.
-9. Create a logs folder in the new release folder.
-10. Create the hls directory symbolic link in the release www folder: mklink /D hls c:\jellyfin\content\LiveStreams
-11. Update the "current" symbolic link to point to the new date-named folder.
-12. Update the Windows firewall to allow nginx.exe  for TCP and UDP.
+1. Check misc/GNUmakefile for versions of PCRE, zlib, and OpenSSL being used and download as necessary.
+   PCRE: http://www.pcre.org/
+   zlib: http://zlib.net/
+   OpenSSL: http://www.openssl.org/
+2. Update configme-msys2.sh to reference current versions of PCRE, zlib, and OpenSSL
+3. Open Msys2 shell. (C:\tools\msys64\msys2.exe)
+4. cd /c/jellyfin/code/nginx
+5. mkdir objs
+   mkdir objs/lib
+   cd objs/lib
+   tar -xzf ../../pcre2-10.49.tar.gz
+   tar -xzf ../../zlib-1.4.tar.gz
+   tar -xzf ../../openssl-3.5.9.tar.gz
+6. ./configme-msys2.sh
+7. Open x64 Native Tools Command Prompt for VS 2022. ("C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visual Studio Tools\VC\x64 Native Tools Command Prompt for VS 2022.lnk")
+8. cd c:\jellyfin\code\nginx
+9. nmake
+10. Copy objs\nginx.exe to a date-named release folder in ..\install\nginx.
+11. Copy the conf, temp, and www folders from the old release folder to the new release folder.
+12. Create a logs folder in the new release folder.
+13. Create the hls directory symbolic link in the release www folder: mklink /D hls c:\jellyfin\content\LiveStreams
+14. Update the "current" symbolic link to point to the new date-named folder.
+15. Update the Windows firewall to allow nginx.exe  for TCP and UDP.
